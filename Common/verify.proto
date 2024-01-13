@@ -1,0 +1,52 @@
+// protoc.exe -I=./ --cpp_out=./ verify.proto
+syntax = "proto3";
+package verify;
+
+
+message RegisterReq {
+	string name = 1;
+	string passwd = 2;
+}
+
+message RegisterAck {
+	bool is_ok = 1;
+	string error_info = 2;
+}
+
+message GetTokenReq {
+	string name = 1;
+	string passwd = 2;
+}
+
+message GetTokenAck {
+	bool is_ok = 1;
+	string token = 2;
+}
+
+message LoginReq {
+	string token = 1;
+}
+
+message LoginAck {
+	bool is_ok = 1;
+}
+
+message VerifyReq {
+	string token = 1;
+}
+
+message VerifyAck {
+	bool is_ok = 1;
+	string token = 2;
+}
+
+message QuitReq {
+
+}
+
+message QuitAck {
+	bool is_ok = 1;
+	string err_info = 2;
+}
+
+
